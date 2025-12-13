@@ -28,6 +28,18 @@
     <button class="copy-btn" onclick="navigator.clipboard.writeText('npm install -g @mariozechner/pi-coding-agent'); this.textContent='Copied!'; setTimeout(() => this.textContent='Copy', 1500)">Copy</button>
 </div>
 
+<!-- Demo -->
+<div id="demo" style="margin: 2rem 0;"></div>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.9.0/dist/bundle/asciinema-player.css" />
+<script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.9.0/dist/bundle/asciinema-player.min.js"></script>
+<script>
+    AsciinemaPlayer.create('/demo.cast', document.getElementById('demo'), {
+        theme: 'dracula',
+        fit: 'width',
+        idleTimeLimit: 2
+    });
+</script>
+
 <!-- Features -->
 <div class="section">
     <div class="section-label">Features</div>
