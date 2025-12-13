@@ -2,26 +2,211 @@
 
 <%= render("./_partials/header.html", { title, description, url }) %>
 
-<div class="flex flex-col gap-6 mt-8">
-    <p class="text-lg">
-        A terminal-based coding agent with multi-model support, mid-session model switching, and a simple CLI.
+<!-- Hero -->
+<div class="hero">
+    <h1 class="hero-title">pi</h1>
+    <p class="hero-subtitle">
+        A terminal-based coding agent. Multi-model support, mid-session switching, minimal and opinionated.
     </p>
-
-    <div>
-        <h4 class="mb-2">Install</h4>
-        <pre><code>npm install -g @mariozechner/pi-coding-agent</code></pre>
+    
+    <div class="cta-links">
+        <a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent" class="cta-link secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+        </a>
+        <a href="https://www.npmjs.com/package/@mariozechner/pi-coding-agent" class="cta-link secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24v-24h-24zm19.2 19.2h-2.4v-9.6h-4.8v9.6h-7.2v-14.4h14.4v14.4z"/></svg>
+            npm
+        </a>
     </div>
+</div>
 
-    <div>
-        <h4 class="mb-2">Run</h4>
-        <pre><code>export ANTHROPIC_API_KEY=sk-ant-...
-pi</code></pre>
-    </div>
+<!-- Install -->
+<div class="install-box">
+    <code><span class="prefix">$</span> npm install -g @mariozechner/pi-coding-agent</code>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText('npm install -g @mariozechner/pi-coding-agent')">Copy</button>
+</div>
 
-    <div class="flex gap-4">
-        <a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent">GitHub</a>
-        <a href="https://www.npmjs.com/package/@mariozechner/pi-coding-agent">npm</a>
+<!-- Terminal Demo -->
+<div class="terminal">
+    <div class="terminal-header">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <span class="terminal-title">pi</span>
     </div>
+    <div class="terminal-body">
+        <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">export ANTHROPIC_API_KEY=sk-ant-...</span></div>
+        <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">pi</span></div>
+        <div class="terminal-line"></div>
+        <div class="terminal-line"><span class="terminal-accent">pi</span> <span class="terminal-output">v0.1.0 • Claude Sonnet 4</span></div>
+        <div class="terminal-line"></div>
+        <div class="terminal-line"><span class="terminal-output">You:</span> Create an Express server with health endpoint</div>
+        <div class="terminal-line"></div>
+        <div class="terminal-line"><span class="terminal-accent">▊</span></div>
+    </div>
+</div>
+
+<!-- Providers -->
+<div class="section">
+    <div class="section-label">Supported Providers</div>
+    <div class="providers">
+        <span class="provider">Anthropic</span>
+        <span class="provider">OpenAI</span>
+        <span class="provider">Google</span>
+        <span class="provider">Mistral</span>
+        <span class="provider">Groq</span>
+        <span class="provider">xAI</span>
+        <span class="provider">OpenRouter</span>
+        <span class="provider">Ollama</span>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="section">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need, nothing you don't</h2>
+    
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <div class="feature-title">Mid-session Model Switching</div>
+            <div class="feature-desc">Switch between models on the fly with /model. Use the right model for each task.</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💭</div>
+            <div class="feature-title">Thinking Modes</div>
+            <div class="feature-desc">Adjust thinking levels for reasoning models. From quick responses to deep analysis.</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📁</div>
+            <div class="feature-title">Session Management</div>
+            <div class="feature-desc">Auto-saved sessions with --continue and --resume. Branch conversations with /branch.</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔧</div>
+            <div class="feature-title">Four Core Tools</div>
+            <div class="feature-desc">read, write, edit, bash. Simple, powerful, composable. No MCP overhead.</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📝</div>
+            <div class="feature-title">Project Context</div>
+            <div class="feature-desc">AGENTS.md files for project instructions. Global and per-directory configuration.</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-title">Customizable</div>
+            <div class="feature-desc">Custom themes, slash commands, skills, and hooks. Make it yours.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Commands -->
+<div class="section">
+    <div class="section-label">Quick Reference</div>
+    <h2 class="section-title">Slash Commands</h2>
+    
+    <table class="command-table">
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>/model</code></td>
+            <td>Switch models mid-session</td>
+        </tr>
+        <tr>
+            <td><code>/thinking</code></td>
+            <td>Adjust thinking level (off/minimal/low/medium/high)</td>
+        </tr>
+        <tr>
+            <td><code>/branch</code></td>
+            <td>Create new conversation branch</td>
+        </tr>
+        <tr>
+            <td><code>/resume</code></td>
+            <td>Switch to a different session</td>
+        </tr>
+        <tr>
+            <td><code>/compact</code></td>
+            <td>Manually compact conversation context</td>
+        </tr>
+        <tr>
+            <td><code>/export</code></td>
+            <td>Export session to HTML</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Philosophy -->
+<div class="section">
+    <div class="section-label">Philosophy</div>
+    <h2 class="section-title">Opinionated by design</h2>
+    
+    <div class="philosophy-grid">
+        <div class="philosophy-item">
+            <h4>No MCP</h4>
+            <p>CLI tools over protocol overhead. Any executable with a README works.</p>
+        </div>
+        <div class="philosophy-item">
+            <h4>No Sub-Agents</h4>
+            <p>Spawn pi via bash if needed. No context loss from delegation.</p>
+        </div>
+        <div class="philosophy-item">
+            <h4>No Permission System</h4>
+            <p>Full filesystem access. Run in a container if uncomfortable.</p>
+        </div>
+        <div class="philosophy-item">
+            <h4>No Planning Mode</h4>
+            <p>Tell the agent to think. Write plans to files for persistence.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CLI Examples -->
+<div class="section">
+    <div class="section-label">Usage</div>
+    <h2 class="section-title">CLI Examples</h2>
+    
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+            <span class="terminal-title">examples</span>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-line"><span class="terminal-output"># Interactive mode</span></div>
+            <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">pi</span></div>
+            <div class="terminal-line"></div>
+            <div class="terminal-line"><span class="terminal-output"># Non-interactive with prompt</span></div>
+            <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">pi -p "List all .ts files in src/"</span></div>
+            <div class="terminal-line"></div>
+            <div class="terminal-line"><span class="terminal-output"># Continue last session</span></div>
+            <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">pi -c</span></div>
+            <div class="terminal-line"></div>
+            <div class="terminal-line"><span class="terminal-output"># With file context</span></div>
+            <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">pi @code.ts "Review this code"</span></div>
+            <div class="terminal-line"></div>
+            <div class="terminal-line"><span class="terminal-output"># Specific model</span></div>
+            <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">pi --provider openai --model gpt-4o</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="mt-16 mb-8 text-center">
+    <div class="flex gap-4 justify-content-center" style="justify-content: center;">
+        <a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent" class="cta-link secondary">
+            Documentation
+        </a>
+        <a href="https://github.com/badlogic/pi-mono/releases" class="cta-link secondary">
+            Releases
+        </a>
+    </div>
+    <p class="mt-6 text-sm text-muted">
+        MIT License • Made by <a href="https://mariozechner.at" style="color: var(--accent);">Mario Zechner</a>
+    </p>
 </div>
 
 <%= render("./_partials/footer.html") %>
