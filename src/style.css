@@ -1,4 +1,5 @@
-@import "./_css/hljs.css";
-@import "./_css/katex.css";
-@import "./_css/base.css";
-@import "./_css/utils.css";
+@import "./_css/atom-one-dark-reasonable.min.css";
+@import "./_css/katex.min.css";
+@import "./_css/colors.css";
+@import "./_css/elements.css";
+@import "./_css/utilities.css";
