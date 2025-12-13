@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+    web:
+        image: caddy:alpine
+        restart: always
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile
+            - ../html:/www:ro
+            - ./data/logs:/logs
+        labels:
+            caddy: shittycodingagent.ai, www.shittycodingagent.ai
+            caddy.reverse_proxy: "{{upstreams 80}}"
+        networks:
+            - caddy-network
+
+networks:
+    caddy-network:
+        external: true

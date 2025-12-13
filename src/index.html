@@ -1,0 +1,27 @@
+<% meta() %>
+
+<%= render("./_partials/header.html", { title, description, url }) %>
+
+<div class="flex flex-col gap-6 mt-8">
+    <p class="text-lg">
+        A terminal-based coding agent with multi-model support, mid-session model switching, and a simple CLI.
+    </p>
+
+    <div>
+        <h4 class="mb-2">Install</h4>
+        <pre><code>npm install -g @mariozechner/pi-coding-agent</code></pre>
+    </div>
+
+    <div>
+        <h4 class="mb-2">Run</h4>
+        <pre><code>export ANTHROPIC_API_KEY=sk-ant-...
+pi</code></pre>
+    </div>
+
+    <div class="flex gap-4">
+        <a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent">GitHub</a>
+        <a href="https://www.npmjs.com/package/@mariozechner/pi-coding-agent">npm</a>
+    </div>
+</div>
+
+<%= render("./_partials/footer.html") %>
