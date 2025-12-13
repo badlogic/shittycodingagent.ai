@@ -115,10 +115,11 @@ body {
     border-radius: 8px;
     padding: 1rem 1.5rem;
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     margin: 1.5rem 0;
 }
 
@@ -128,6 +129,7 @@ body {
     background: none;
     font-style: normal;
     color: #fff;
+    white-space: nowrap;
 }
 
 .install-box .prefix {
@@ -143,6 +145,7 @@ body {
     cursor: pointer;
     font-size: 13px;
     transition: all 0.2s;
+    flex-shrink: 0;
 }
 
 .copy-btn:hover {
@@ -170,81 +173,95 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Feature grid */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.feature {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--terminal-border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.2s;
-}
-
-.feature:hover {
-    border-color: var(--accent-dim);
-    background: rgba(249, 115, 22, 0.03);
-}
-
-.feature-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.feature-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.feature-desc {
-    font-size: 0.9rem;
+/* Feature columns */
+.section-intro {
     color: var(--dimmed-text-color);
-    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
 }
 
-/* Links */
-.cta-links {
+.feature-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+@media (max-width: 600px) {
+    .feature-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.feature-col h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+}
+
+.feature-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-col li {
+    padding: 0.5rem 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.feature-col li > a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.feature-col li > span {
+    color: var(--dimmed-text-color);
+    font-size: 0.9rem;
+}
+
+
+
+.docs-link {
+    margin-top: 2rem;
+    color: var(--dimmed-text-color);
+}
+
+.docs-link a {
+    color: var(--accent);
+}
+
+.feature-col code {
+    background: var(--terminal-bg);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+/* Hero links */
+.hero-links {
+    margin-top: 1.5rem;
     display: flex;
     gap: 1.5rem;
     justify-content: center;
-    margin-top: 2rem;
 }
 
-.cta-link {
+.hero-links a {
+    color: #fff;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.2s;
-    text-decoration: none;
-    border: none;
+    gap: 0.4rem;
 }
 
-.cta-link.primary {
-    background: var(--accent);
-    color: #000;
-}
-
-.cta-link.primary:hover {
-    background: #fb923c;
-}
-
-.cta-link.secondary {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--terminal-border);
-    color: #fff;
-}
-
-.cta-link.secondary:hover {
-    border-color: var(--accent);
+.hero-links a:hover {
+    color: var(--accent);
 }
 
 /* Provider logos */
@@ -296,29 +313,8 @@ body {
 }
 
 /* Philosophy section */
-.philosophy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.philosophy-item {
-    padding: 1rem 1.25rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
-    border-left: 3px solid var(--accent);
-}
-
-.philosophy-item h4 {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
-}
-
-.philosophy-item p {
-    font-size: 0.85rem;
-    color: var(--dimmed-text-color);
-    margin: 0;
+.section > p a {
+    color: var(--accent);
 }
 
 /* Responsive */
@@ -337,9 +333,7 @@ body {
     }
     
     .install-box {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+        overflow-x: auto;
     }
     
     .cta-links {

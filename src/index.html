@@ -7,15 +7,15 @@
 <div class="hero">
     <h1 class="hero-title">pi</h1>
     <p class="hero-subtitle">
-        Yet another coding agent. This one runs in your terminal and doesn't mass-market itself on X or HN.
+        There are many shitty coding agents, but this one is mine.
     </p>
     
-    <div class="cta-links">
-        <a href="<%=repo%>" class="cta-link secondary">
+    <div class="hero-links">
+        <a href="<%=repo%>">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             GitHub
         </a>
-        <a href="https://www.npmjs.com/package/@mariozechner/pi-coding-agent" class="cta-link secondary">
+        <a href="https://www.npmjs.com/package/@mariozechner/pi-coding-agent">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24v-24h-24zm19.2 19.2h-2.4v-9.6h-4.8v9.6h-7.2v-14.4h14.4v14.4z"/></svg>
             npm
         </a>
@@ -25,83 +25,43 @@
 <!-- Install -->
 <div class="install-box">
     <code><span class="prefix">$</span> npm install -g @mariozechner/pi-coding-agent</code>
-    <button class="copy-btn" onclick="navigator.clipboard.writeText('npm install -g @mariozechner/pi-coding-agent')">Copy</button>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText('npm install -g @mariozechner/pi-coding-agent'); this.textContent='Copied!'; setTimeout(() => this.textContent='Copy', 1500)">Copy</button>
 </div>
 
-<!-- Terminal Demo -->
-<div class="terminal">
-    <div class="terminal-header">
-        <div class="terminal-dot red"></div>
-        <div class="terminal-dot yellow"></div>
-        <div class="terminal-dot green"></div>
-        <span class="terminal-title">zsh</span>
-    </div>
-    <div class="terminal-body">
-        <div class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-command">pi</span></div>
-        <div class="terminal-line"></div>
-        <div class="terminal-line"><span class="terminal-accent">pi</span> <span class="terminal-output">v0.1.0 • sonnet-4</span></div>
-        <div class="terminal-line"></div>
-        <div class="terminal-line"><span class="terminal-output">You:</span> fix the mass-market website</div>
-        <div class="terminal-line"></div>
-        <div class="terminal-line"><span class="terminal-accent">⠋</span> <span class="terminal-output">Thinking...</span></div>
-    </div>
-</div>
-
-<!-- What it does -->
+<!-- Features -->
 <div class="section">
-    <div class="section-label">What you get</div>
-    <h2 class="section-title">The boring stuff that actually matters</h2>
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Minimal. Opinionated. Extensible.</h2>
+    <p class="section-intro">Lean core keeps your context clean. Use only what you need.</p>
     
-    <div class="features">
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#tools">4 tools</a></div>
-            <div class="feature-desc">read, write, edit, bash. That's it. No MCP, no tool zoo.</div>
+    <div class="feature-columns">
+        <div class="feature-col">
+            <h3>Core</h3>
+            <ul>
+                <li><a href="<%=repo%>#tools">4 tools</a><span>read, write, edit, bash</span></li>
+                <li><a href="<%=repo%>#api-keys">Multi-provider</a><span>Anthropic, OpenAI, Google, Mistral, Groq, xAI, OpenRouter, Ollama, or add your own</span></li>
+                <li><a href="<%=repo%>#slash-commands">/model</a><span>switch models mid-conversation</span></li>
+                <li><a href="<%=repo%>#session-management">Sessions</a><span>continue, resume, branch</span></li>
+                <li><a href="<%=repo%>#context-compaction">Compaction</a><span>auto-summarize long conversations</span></li>
+                <li><a href="<%=repo%>#bash-mode">Bash mode</a><span>prefix with <code>!</code> to run commands</span></li>
+                <li><a href="<%=repo%>#image-support">Images</a><span>paste or drag into context</span></li>
+            </ul>
         </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#api-keys">Multi-provider</a></div>
-            <div class="feature-desc">Anthropic, OpenAI, Google, Mistral, Groq, xAI, OpenRouter, Ollama. <a href="<%=repo%>#custom-models-and-providers">Add your own</a>.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#slash-commands">/model</a></div>
-            <div class="feature-desc">Switch models mid-conversation. Because one size never fits all.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#session-management">Sessions</a></div>
-            <div class="feature-desc"><code>pi -c</code> continues. <code>pi -r</code> picks from history. <a href="<%=repo%>#branching">/branch</a> for bad ideas.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#context-compaction">Compaction</a></div>
-            <div class="feature-desc">Long conversations get summarized so you don't hit context limits mid-thought.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#project-context-files">AGENTS.md</a></div>
-            <div class="feature-desc">Project instructions loaded automatically. Global or per-directory.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#custom-slash-commands">Custom commands</a></div>
-            <div class="feature-desc">Markdown files become slash commands. Reusable prompts without copy-paste.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#skills">Skills</a></div>
-            <div class="feature-desc">On-demand instruction files. Agent loads them when relevant.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#hooks">Hooks</a></div>
-            <div class="feature-desc">TypeScript modules for permission gates, checkpoints, or injecting messages.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#themes">Themes</a></div>
-            <div class="feature-desc">Dark, light, or roll your own. Hot reload included.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#bash-mode">Bash mode</a></div>
-            <div class="feature-desc">Prefix with <code>!</code> to run commands. Output goes into context.</div>
-        </div>
-        <div class="feature">
-            <div class="feature-title"><a href="<%=repo%>#rpc-mode">RPC mode</a></div>
-            <div class="feature-desc">JSON over stdin/stdout. Embed it in your own tools.</div>
+        <div class="feature-col">
+            <h3>Opt-in</h3>
+            <ul>
+                <li><a href="<%=repo%>#project-context-files">AGENTS.md</a><span>project instructions</span></li>
+                <li><a href="<%=repo%>#custom-slash-commands">Custom commands</a><span>reusable prompt templates</span></li>
+                <li><a href="<%=repo%>#skills">Skills</a><span>on-demand instruction files</span></li>
+                <li><a href="<%=repo%>#hooks">Hooks</a><span>permission gates, checkpoints, message injection, custom UI</span></li>
+                <li><a href="<%=repo%>#themes">Themes</a><span>dark, light, or custom with hot reload</span></li>
+                <li><a href="<%=repo%>#rpc-mode">RPC & TypeScript API</a><span>build your own UI or agents on top</span></li>
+                <li><a href="<%=repo%>#html-export">HTML export</a><span>shareable session snapshots</span></li>
+            </ul>
         </div>
     </div>
+    
+    <p class="docs-link">The rest is in the <a href="<%=repo%>#readme">docs</a>.</p>
 </div>
 
 <!-- Philosophy -->
@@ -109,30 +69,43 @@
     <div class="section-label">Philosophy</div>
     <h2 class="section-title">What we didn't build</h2>
     
-    <div class="philosophy-grid">
-        <div class="philosophy-item">
-            <h4><a href="<%=repo%>#no-mcp">No MCP</a></h4>
-            <p>CLI tools work fine. Always have.</p>
-        </div>
-        <div class="philosophy-item">
-            <h4><a href="<%=repo%>#no-sub-agents">No sub-agents</a></h4>
-            <p>Context doesn't survive delegation.</p>
-        </div>
-        <div class="philosophy-item">
-            <h4><a href="<%=repo%>#no-permission-system-yolo-mode">No permission popups</a></h4>
-            <p>They're security theater anyway.</p>
-        </div>
-        <div class="philosophy-item">
-            <h4><a href="<%=repo%>#no-planning-mode">No "plan mode"</a></h4>
-            <p>Just ask it to think first.</p>
-        </div>
-    </div>
+    <p>
+        pi is opinionated about what it won't do. These are intentional design decisions to minimize context bloat and avoid anti-patterns.
+    </p>
+    
+    <p>
+        <a href="<%=repo%>#no-mcp">No MCP.</a> Build CLI tools with READMEs (see <a href="<%=repo%>#skills">Skills</a>). The agent reads them on demand. <a href="https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/">Would you like to know more?</a> If you must, use <a href="https://github.com/steipete/mcporter">mcporter</a>.
+    </p>
+    
+    <p>
+        <a href="<%=repo%>#no-sub-agents">No sub-agents.</a> Spawn pi instances via tmux. Observability and steerability for you and the agent.
+    </p>
+    
+    <p>
+        <a href="<%=repo%>#no-permission-system-yolo-mode">No permission popups.</a> Security theater. Run in a container or build your own with <a href="<%=repo%>#hooks">Hooks</a>.
+    </p>
+    
+    <p>
+        <a href="<%=repo%>#no-planning-mode">No plan mode.</a> Gather context in one session, write plans to file, start fresh for implementation.
+    </p>
+    
+    <p>
+        <a href="<%=repo%>#no-built-in-to-dos">No built-in to-dos.</a> They confuse models. Use a TODO.md file.
+    </p>
+    
+    <p>
+        <a href="<%=repo%>#no-background-bash">No background bash.</a> Use tmux. Full observability, direct interaction.
+    </p>
+    
+    <p>
+        Read the <a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">blog post</a> for the full rationale.
+    </p>
 </div>
 
 <!-- Footer -->
-<div class="mt-12 mb-8 text-center">
+<div class="mt-8 mb-8 text-center">
     <p class="text-sm text-muted">
-        MIT License • Made by <a href="https://mariozechner.at" style="color: var(--accent);">Mario Zechner</a>
+        MIT License • <a href="https://mariozechner.at">Mario Zechner</a> & <a href="https://github.com/badlogic/pi-mono/graphs/contributors">contributors</a>
     </p>
 </div>
 
