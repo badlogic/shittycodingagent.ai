@@ -35,6 +35,12 @@ body {
     color: #fff;
 }
 
+.hero-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+}
+
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--dimmed-text-color);
