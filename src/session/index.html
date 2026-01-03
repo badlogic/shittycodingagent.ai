@@ -171,13 +171,16 @@
       }
 
       // Parse query string: ?SESSION_ID or ?SESSION_ID/filename.html
+      // Also handle additional URL parameters like ?SESSION_ID&foo=bar
       const query = location.search.substring(1);
       if (!query) {
         showError('No session ID provided.<br><br>URL format: <code>?SESSION_ID</code>');
         return;
       }
 
-      const parts = query.split('/');
+      // Split off any additional URL parameters (e.g., &foo=bar)
+      const sessionPath = query.split('&')[0];
+      const parts = sessionPath.split('/');
       const gistId = parts[0];
       const fileName = decodeURIComponent(parts[1] || DEFAULT_FILENAME);
 
