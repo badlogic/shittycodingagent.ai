@@ -163,8 +163,13 @@
         errorEl.classList.remove('hidden');
       }
 
-      function showPreview(content) {
+      function showPreview(content, gistId) {
         loadingEl.classList.add('hidden');
+        // Inject base URL for share links (iframe can't access parent.location due to sandbox)
+        // Insert a meta tag right after <head> that template.js can read
+        const baseUrl = location.origin + '/session/?' + gistId;
+        const metaTag = '<meta name="pi-share-base-url" content="' + baseUrl + '">';
+        content = content.replace(/<head[^>]*>/i, '$&' + metaTag);
         // Use srcdoc to load content into sandboxed iframe
         previewEl.srcdoc = content;
         previewEl.classList.remove('hidden');
@@ -221,7 +226,7 @@
           return file.content;
         })
         .then(function(content) {
-          showPreview(content);
+          showPreview(content, gistId);
         })
         .catch(function(err) {
           showError(err.message);
