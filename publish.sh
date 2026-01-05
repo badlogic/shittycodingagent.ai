@@ -15,4 +15,10 @@ ssh -t $host "mkdir -p $host_dir/docker/data/logs"
 rsync -avz --exclude node_modules --exclude .git --exclude data --exclude docker/data ./ $host:$host_dir
 
 echo "Restarting service..."
-ssh -t $host "cd $host_dir && ./docker/control.sh stop && ./docker/control.sh start && ./docker/control.sh logs"
+ssh $host "cd $host_dir && ./docker/control.sh stop && ./docker/control.sh start"
+echo "Tailing logs for 5 seconds..."
+ssh $host "cd $host_dir && ./docker/control.sh logs" &
+pid=$!
+sleep 5
+kill $pid 2>/dev/null || true
+echo "Done."
