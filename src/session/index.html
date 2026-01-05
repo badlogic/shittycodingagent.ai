@@ -163,13 +163,14 @@
         errorEl.classList.remove('hidden');
       }
 
-      function showPreview(content, gistId) {
+      function showPreview(content, gistId, urlParams) {
         loadingEl.classList.add('hidden');
-        // Inject base URL for share links (iframe can't access parent.location due to sandbox)
-        // Insert a meta tag right after <head> that template.js can read
+        // Inject base URL and URL params for share links (iframe can't access parent.location due to sandbox)
+        // Insert meta tags right after <head> that template.js can read
         const baseUrl = location.origin + '/session/?' + gistId;
-        const metaTag = '<meta name="pi-share-base-url" content="' + baseUrl + '">';
-        content = content.replace(/<head[^>]*>/i, '$&' + metaTag);
+        const metaTags = '<meta name="pi-share-base-url" content="' + baseUrl + '">' +
+                         '<meta name="pi-url-params" content="' + urlParams + '">';
+        content = content.replace(/<head[^>]*>/i, '$&' + metaTags);
         // Use srcdoc to load content into sandboxed iframe
         previewEl.srcdoc = content;
         previewEl.classList.remove('hidden');
@@ -184,7 +185,9 @@
       }
 
       // Split off any additional URL parameters (e.g., &foo=bar)
-      const sessionPath = query.split('&')[0];
+      const firstAmpersand = query.indexOf('&');
+      const sessionPath = firstAmpersand >= 0 ? query.substring(0, firstAmpersand) : query;
+      const urlParams = firstAmpersand >= 0 ? query.substring(firstAmpersand + 1) : '';
       const parts = sessionPath.split('/');
       const gistId = parts[0];
       const fileName = decodeURIComponent(parts[1] || DEFAULT_FILENAME);
@@ -226,7 +229,7 @@
           return file.content;
         })
         .then(function(content) {
-          showPreview(content, gistId);
+          showPreview(content, gistId, urlParams);
         })
         .catch(function(err) {
           showError(err.message);
