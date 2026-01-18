@@ -167,7 +167,7 @@
         loadingEl.classList.add('hidden');
         // Inject base URL and URL params for share links (iframe can't access parent.location due to sandbox)
         // Insert meta tags right after <head> that template.js can read
-        const baseUrl = location.origin + '/session/?' + gistId;
+        const baseUrl = location.origin + '/session/#' + gistId;
         const metaTags = '<meta name="pi-share-base-url" content="' + baseUrl + '">' +
                          '<meta name="pi-url-params" content="' + urlParams + '">';
         content = content.replace(/<head[^>]*>/i, '$&' + metaTags);
@@ -176,11 +176,12 @@
         previewEl.classList.remove('hidden');
       }
 
-      // Parse query string: ?SESSION_ID or ?SESSION_ID/filename.html
-      // Also handle additional URL parameters like ?SESSION_ID&foo=bar
-      const query = location.search.substring(1);
+      // Parse session ID from hash (preferred) or query string (backward compat)
+      // Formats: #SESSION_ID, #SESSION_ID/filename.html, #SESSION_ID&leafId=...&targetId=...
+      // Legacy:  ?SESSION_ID, ?SESSION_ID/filename.html, ?SESSION_ID&leafId=...&targetId=...
+      const query = location.hash.substring(1) || location.search.substring(1);
       if (!query) {
-        showError('No session ID provided.<br><br>URL format: <code>?SESSION_ID</code>');
+        showError('No session ID provided.<br><br>URL format: <code>#SESSION_ID</code>');
         return;
       }
 
